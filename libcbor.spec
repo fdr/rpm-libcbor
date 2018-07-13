@@ -1,6 +1,6 @@
 Name:		libcbor
 Version:	0.5.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	A CBOR parsing library
 
 Group:		System Environment/Libraries
@@ -57,6 +57,9 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %{_libdir}/pkgconfig/libcbor.pc
 
 %changelog
+* Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
