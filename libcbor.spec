@@ -37,8 +37,7 @@ make man
 mkdir -p %{buildroot}%{_mandir}/man1
 cp doc/build/man/* %{buildroot}%{_mandir}/man1
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%ldconfig_scriptlets
 
 
 %files
