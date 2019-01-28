@@ -3,7 +3,6 @@ Version:	0.5.0
 Release:	3%{?dist}
 Summary:	A CBOR parsing library
 
-Group:		System Environment/Libraries
 License:	MIT
 URL:		http://libcbor.org
 Source0:	libcbor-%{version}.tar.gz
