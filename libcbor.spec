@@ -1,13 +1,18 @@
 Name:		libcbor
 Version:	0.5.0
-Release:	6%{?dist}
+Release:	7%{?dist}
 Summary:	A CBOR parsing library
 
 License:	MIT
 URL:		http://libcbor.org
 Source0:	libcbor-%{version}.tar.gz
 
-BuildRequires:	cmake, gcc, gcc-c++, python3-sphinx, python3-breathe
+BuildRequires:	cmake
+BuildRequires:	gcc
+BuildRequires:	gcc-c++
+BuildRequires:	python3-breathe
+BuildRequires:	python3-sphinx
+BuildRequires:	python3-sphinx_rtd_theme
 
 %description
 libcbor is a C library for parsing and generating CBOR.
@@ -22,10 +27,9 @@ The %{name}-devel contains libraries and header files for %{name}.
 %prep
 %setup -q
 
-%cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFFIX="/usr" ./
-
 
 %build
+%cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFFIX="/usr" ./
 %make_build cbor_shared
 cd doc
 make man
@@ -40,12 +44,10 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 
 
 %files
-%{_libdir}/libcbor.so.?
-%{_libdir}/libcbor.so.?.?.?
-
-%doc README.md
-%{_mandir}/man1/libcbor.1.gz
 %license LICENSE.md
+%doc README.md
+%{_libdir}/libcbor.so.0*
+%{_mandir}/man1/libcbor.1.gz
 
 %files devel
 %{_includedir}/cbor.h
@@ -55,6 +57,9 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %{_libdir}/pkgconfig/libcbor.pc
 
 %changelog
+* Sat Feb 29 2020 Peter Robinson <pbrobinson@fedoraproject.org> - 0.5.0-7
+- Fix FTBFS, add version for soname, minor cleanups
+
 * Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
