@@ -1,6 +1,6 @@
 Name:		libcbor
 Version:	0.5.0
-Release:	7%{?dist}
+Release:	8%{?dist}
 Summary:	A CBOR parsing library
 
 License:	MIT
@@ -57,6 +57,9 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %{_libdir}/pkgconfig/libcbor.pc
 
 %changelog
+* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-8
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Sat Feb 29 2020 Peter Robinson <pbrobinson@fedoraproject.org> - 0.5.0-7
 - Fix FTBFS, add version for soname, minor cleanups
 
