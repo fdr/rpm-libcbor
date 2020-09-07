@@ -1,11 +1,11 @@
 Name:		libcbor
-Version:	0.5.0
-Release:	9%{?dist}
+Version:	0.7.0
+Release:	1%{?dist}
 Summary:	A CBOR parsing library
 
 License:	MIT
 URL:		http://libcbor.org
-Source0:	libcbor-%{version}.tar.gz
+Source0:	https://github.com/PJK/%{name}/archive/v%{version}.tar.gz
 
 BuildRequires:	cmake
 BuildRequires:	gcc
@@ -29,14 +29,14 @@ The %{name}-devel contains libraries and header files for %{name}.
 
 
 %build
-%cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFFIX="/usr" ./
+%cmake -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFFIX="/usr" ./
 %make_build cbor_shared
 cd doc
 make man
 
 
 %install
-%make_install 
+%make_install
 mkdir -p %{buildroot}%{_mandir}/man1
 cp doc/build/man/* %{buildroot}%{_mandir}/man1
 
@@ -57,6 +57,11 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %{_libdir}/pkgconfig/libcbor.pc
 
 %changelog
+* Mon Sep 07 2020 Attila Lakatos <alakatos@redhat.com> - 0.7.0-1
+- update to 0.7.0
+Resolves: rhbz#1813738
+Resolves: rhbz#1863978
+
 * Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-9
 - Second attempt - Rebuilt for
   https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
