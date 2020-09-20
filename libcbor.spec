@@ -1,6 +1,6 @@
 Name:		libcbor
 Version:	0.7.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A CBOR parsing library
 
 License:	MIT
@@ -47,7 +47,7 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %license LICENSE.md
 %doc README.md
 %{_libdir}/libcbor.so.0*
-%{_mandir}/man1/libcbor.1.gz
+%{_mandir}/man1/libcbor.1*
 
 %files devel
 %{_includedir}/cbor.h
@@ -57,6 +57,9 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %{_libdir}/pkgconfig/libcbor.pc
 
 %changelog
+* Sun Sep 20 2020 Kalev Lember <klember@redhat.com> - 0.7.0-2
+- Avoid hardcoding man page extension
+
 * Mon Sep 07 2020 Attila Lakatos <alakatos@redhat.com> - 0.7.0-1
 - update to 0.7.0
 Resolves: rhbz#1813738
