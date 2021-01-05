@@ -13,6 +13,7 @@ BuildRequires:	gcc-c++
 BuildRequires:	python3-breathe
 BuildRequires:	python3-sphinx
 BuildRequires:	python3-sphinx_rtd_theme
+BuildRequires: make
 
 %description
 libcbor is a C library for parsing and generating CBOR.
