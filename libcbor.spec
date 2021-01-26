@@ -1,6 +1,6 @@
 Name:		libcbor
 Version:	0.7.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	A CBOR parsing library
 
 License:	MIT
@@ -58,6 +58,9 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %{_libdir}/pkgconfig/libcbor.pc
 
 %changelog
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Sun Sep 20 2020 Kalev Lember <klember@redhat.com> - 0.7.0-2
 - Avoid hardcoding man page extension
 
