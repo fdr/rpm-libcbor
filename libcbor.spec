@@ -10,9 +10,6 @@ Source0:	https://github.com/PJK/%{name}/archive/v%{version}.tar.gz
 BuildRequires:	cmake
 BuildRequires:	gcc
 BuildRequires:	gcc-c++
-BuildRequires:	python3-breathe
-BuildRequires:	python3-sphinx
-BuildRequires:	python3-sphinx_rtd_theme
 BuildRequires: make
 
 %description
@@ -32,14 +29,9 @@ The %{name}-devel contains libraries and header files for %{name}.
 %build
 %cmake -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFFIX="/usr" ./
 %make_build cbor_shared
-cd doc
-make man
-
 
 %install
 %make_install
-mkdir -p %{buildroot}%{_mandir}/man1
-cp doc/build/man/* %{buildroot}%{_mandir}/man1
 
 %ldconfig_scriptlets
 
@@ -48,7 +40,6 @@ cp doc/build/man/* %{buildroot}%{_mandir}/man1
 %license LICENSE.md
 %doc README.md
 %{_libdir}/libcbor.so.0*
-%{_mandir}/man1/libcbor.1*
 
 %files devel
 %{_includedir}/cbor.h
